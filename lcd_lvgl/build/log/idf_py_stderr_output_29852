@@ -1,0 +1,623 @@
+[0;33m--- esp-idf-monitor 1.4.0 on /dev/ttyUSB0 115200 ---[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x40375afe: panic_abort at /home/kalpesh/esp/esp-idf/components/esp_system/panic.c:466
+0x4037b351: esp_system_abort at /home/kalpesh/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40381e59: __assert_func at /home/kalpesh/esp/esp-idf/components/newlib/assert.c:81
+0x40380cde: remove_free_block at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:330 (discriminator 1)
+ (inlined by) block_locate_free at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:567 (discriminator 1)
+ (inlined by) tlsf_malloc at /home/kalpesh/esp/esp-idf/components/heap/tlsf/tlsf.c:1005 (discriminator 1)
+0x4038068d: multi_heap_malloc_impl at /home/kalpesh/esp/esp-idf/components/heap/multi_heap.c:210
+0x403761ad: heap_caps_malloc_base at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:179
+0x4037624d: heap_caps_malloc_default at /home/kalpesh/esp/esp-idf/components/heap/heap_caps.c:236
+0x40381e69: malloc at /home/kalpesh/esp/esp-idf/components/newlib/heap.c:24
+0x4200c669: lv_malloc_core at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/clib/lv_mem_core_clib.c:64
+0x4200c73a: lv_malloc_zeroed at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/stdlib/lv_mem.c:100
+0x4200b03e: lv_display_create at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:75
+0x42008e18: lv_port_disp_init at /home/kalpesh/esp/LCD/lcd_lvgl/main/lv_port_disp.c:75
+0x42008bd3: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:128
+0x4203f0e7: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40375a74: esp_restart_noos at /home/kalpesh/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0m

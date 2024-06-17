@@ -1,0 +1,35 @@
+[0;33m--- esp-idf-monitor 1.4.0 on /dev/ttyUSB0 115200 ---[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---[0m
+[0;33m0x420335fb: task_wdt_timeout_handling at /home/kalpesh/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:441
+0x42033a18: task_wdt_isr at /home/kalpesh/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:515
+0x40377705: _xt_lowint1 at /home/kalpesh/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+0x4200ae0a: lv_display_set_buffers at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:420
+0x42008dad: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:108
+0x4204acc3: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x420335fb: task_wdt_timeout_handling at /home/kalpesh/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:441
+0x42033a18: task_wdt_isr at /home/kalpesh/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:515
+0x40377705: _xt_lowint1 at /home/kalpesh/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+0x4200ae0a: lv_display_set_buffers at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:420
+0x42008dad: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:108
+0x4204acc3: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x420335fb: task_wdt_timeout_handling at /home/kalpesh/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:441
+0x42033a18: task_wdt_isr at /home/kalpesh/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:515
+0x40377705: _xt_lowint1 at /home/kalpesh/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+0x4200ae0a: lv_display_set_buffers at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:420
+0x42008dad: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:108
+0x4204acc3: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x420335fb: task_wdt_timeout_handling at /home/kalpesh/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:441
+0x42033a18: task_wdt_isr at /home/kalpesh/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:515
+0x40377705: _xt_lowint1 at /home/kalpesh/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+0x4200ae0a: lv_display_set_buffers at /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl/src/display/lv_display.c:420
+0x42008dad: app_main at /home/kalpesh/esp/LCD/lcd_lvgl/main/lcd_lvgl.c:108
+0x4204acc3: main_task at /home/kalpesh/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037bbb5: vPortTaskWrapper at /home/kalpesh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0m
