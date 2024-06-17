@@ -39,6 +39,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/kalpesh/esp/LCD/lcd_lvgl/build/bootloader/esp-idf/esp_hw_support/port/esp32s3/cmake_install.cmake")
+  include("/home/kalpesh/esp/ESP32s3_learning/lcd_lvgl/build/bootloader/esp-idf/esp_hw_support/port/esp32s3/cmake_install.cmake")
 endif()
 

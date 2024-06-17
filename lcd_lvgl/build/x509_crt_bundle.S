@@ -1,4 +1,4 @@
-/* * Data converted from /home/kalpesh/esp/LCD/lcd_lvgl/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from /home/kalpesh/esp/ESP32s3_learning/lcd_lvgl/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 .section .rodata.embedded

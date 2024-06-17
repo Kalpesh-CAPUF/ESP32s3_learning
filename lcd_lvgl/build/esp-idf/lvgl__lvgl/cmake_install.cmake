@@ -1,4 +1,4 @@
-# Install script for directory: /home/kalpesh/esp/LCD/lcd_lvgl/managed_components/lvgl__lvgl
+# Install script for directory: /home/kalpesh/esp/ESP32s3_learning/lcd_lvgl/managed_components/lvgl__lvgl
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

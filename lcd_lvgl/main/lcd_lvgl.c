@@ -1,95 +1,179 @@
-#include "lcd_lvgl.h"
+/*
+ * SPDX-FileCopyrightText: 2022-2023 Espressif Systems (Shanghai) CO LTD
+ *
+ * SPDX-License-Identifier: CC0-1.0
+ */
 
-// static const char *TAG = "example";
-static SemaphoreHandle_t lvgl_mux = NULL;
+#include <stdio.h>
+#include "sdkconfig.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "freertos/semphr.h"
+#include "esp_timer.h"
+#include "esp_lcd_panel_ops.h"
+#include "esp_lcd_panel_rgb.h"
+#include "driver/gpio.h"
+#include "esp_err.h"
+#include "esp_log.h"
+#include "lvgl.h"
+
+static const char *TAG = "example";
 
 #if 1
-void my_flush_cb(lv_display_t * display, const lv_area_t * area, uint8_t * px_map)
-{
-    esp_lcd_panel_handle_t panel_handle = (esp_lcd_panel_handle_t) lv_display_get_user_data(display);
-    /*The most simple case (but also the slowest) to put all pixels to the screen one-by-one
-     *`put_px` is just an example, it needs to be implemented by you.*/
-    // uint16_t * buf16 = (uint16_t *)px_map; /*Let's say it's a 16 bit (RGB565) display*/
-    uint32_t offsetx1 = area->x1;
-    uint32_t offsetx2 = area->x2;
-    uint32_t offsety1 = area->y1;
-    uint32_t offsety2 = area->y2;
-    esp_lcd_panel_draw_bitmap(panel_handle, offsetx1, offsety1, offsetx2 + 1, offsety2 + 1, px_map);
-    /* IMPORTANT!!!
-     * Inform LVGL that you are ready with the flushing and buf is not used anymore*/
-    lv_display_flush_ready(display);
-}
 
-static bool example_on_vsync_event(esp_lcd_panel_handle_t panel, const esp_lcd_rgb_panel_event_data_t *event_data, void *user_data)
-{
-    BaseType_t high_task_awoken = pdFALSE;
+#define EXAMPLE_LCD_PIXEL_CLOCK_HZ     (18 * 1000 * 1000)
+#define EXAMPLE_LCD_BK_LIGHT_ON_LEVEL  1
+#define EXAMPLE_LCD_BK_LIGHT_OFF_LEVEL !EXAMPLE_LCD_BK_LIGHT_ON_LEVEL
+#define EXAMPLE_PIN_NUM_BK_LIGHT       2
+#define EXAMPLE_PIN_NUM_HSYNC          39
+#define EXAMPLE_PIN_NUM_VSYNC          40
+#define EXAMPLE_PIN_NUM_DE             41
+#define EXAMPLE_PIN_NUM_PCLK           0
+#define EXAMPLE_PIN_NUM_DATA0          15 // B0
+#define EXAMPLE_PIN_NUM_DATA1          7 // B1
+#define EXAMPLE_PIN_NUM_DATA2          6 // B2
+#define EXAMPLE_PIN_NUM_DATA3          5 // B3
+#define EXAMPLE_PIN_NUM_DATA4          4 // B4
+#define EXAMPLE_PIN_NUM_DATA5          9 // G0
+#define EXAMPLE_PIN_NUM_DATA6          46 // G1
+#define EXAMPLE_PIN_NUM_DATA7          3 // G2
+#define EXAMPLE_PIN_NUM_DATA8          8 // G3
+#define EXAMPLE_PIN_NUM_DATA9          16 // G4
+#define EXAMPLE_PIN_NUM_DATA10         1 // G5
+#define EXAMPLE_PIN_NUM_DATA11         14  // R0
+#define EXAMPLE_PIN_NUM_DATA12         21  // R1
+#define EXAMPLE_PIN_NUM_DATA13         47 // R2
+#define EXAMPLE_PIN_NUM_DATA14         48 // R3
+#define EXAMPLE_PIN_NUM_DATA15         45 // R4
+#define EXAMPLE_PIN_NUM_DISP_EN        -1
+
+#endif
+
+// The pixel number in horizontal and vertical
+#define EXAMPLE_LCD_H_RES              800
+#define EXAMPLE_LCD_V_RES              480
+
+#if CONFIG_EXAMPLE_DOUBLE_FB
+#define EXAMPLE_LCD_NUM_FB             2
+#else
+#define EXAMPLE_LCD_NUM_FB             1
+#endif // CONFIG_EXAMPLE_DOUBLE_FB
+
+#define EXAMPLE_LVGL_TICK_PERIOD_MS    2
+#define EXAMPLE_LVGL_TASK_MAX_DELAY_MS 500
+#define EXAMPLE_LVGL_TASK_MIN_DELAY_MS 1
+#define EXAMPLE_LVGL_TASK_STACK_SIZE   (4 * 1024)
+#define EXAMPLE_LVGL_TASK_PRIORITY     2
+
+static SemaphoreHandle_t lvgl_mux = NULL;
+
+// we use two semaphores to sync the VSYNC event and the LVGL task, to avoid potential tearing effect
 #if CONFIG_EXAMPLE_AVOID_TEAR_EFFECT_WITH_SEM
-    if (xSemaphoreTakeFromISR(sem_gui_ready, &high_task_awoken) == pdTRUE) {
-        xSemaphoreGiveFromISR(sem_vsync_end, &high_task_awoken);
+SemaphoreHandle_t sem_vsync_end;
+SemaphoreHandle_t sem_gui_ready;
+#endif
+
+extern void example_lvgl_demo_ui(lv_disp_t *disp);
+extern void example_lvgl_demo2_ui(lv_disp_t *disp);
+
+
+//SD card header
+
+#include <string.h>
+#include <unistd.h>
+#include <dirent.h> 
+#include "esp_vfs_fat.h"
+#include "sdmmc_cmd.h"
+
+#include <fcntl.h>
+#include<sys/stat.h>
+#include<sys/types.h>
+
+#define PIN_NUM_MISO  GPIO_NUM_13
+#define PIN_NUM_MOSI  GPIO_NUM_11
+#define PIN_NUM_CLK   GPIO_NUM_12
+#define PIN_NUM_CS    GPIO_NUM_10
+
+#define MOUNT_POINT "/sdcard"
+
+void SdCardInit() {
+    time_t seconds;
+    
+    seconds = time(NULL);
+    printf("Seconds since January 1, 1970 = %lld\n", seconds);
+
+    esp_err_t ret;
+
+    esp_vfs_fat_sdmmc_mount_config_t mount_config = {
+        .max_files = 5,
+        .allocation_unit_size = 4 * 1024
+    };
+
+    sdmmc_card_t *card = NULL;
+
+    const char mount_point[] = MOUNT_POINT;
+
+    sdmmc_host_t host = SDSPI_HOST_DEFAULT();
+
+    spi_bus_config_t bus_cfg = {
+        .mosi_io_num = PIN_NUM_MOSI,
+        .miso_io_num = PIN_NUM_MISO,
+        .sclk_io_num = PIN_NUM_CLK,
+        .quadwp_io_num = -1,
+        .quadhd_io_num = -1,
+        .max_transfer_sz = 4096,
+    };
+
+    spi_bus_initialize(host.slot, &bus_cfg, SDSPI_DEFAULT_DMA);
+
+    sdspi_device_config_t slot_config = SDSPI_DEVICE_CONFIG_DEFAULT();
+    slot_config.gpio_cs = PIN_NUM_CS;
+    slot_config.host_id = host.slot;
+
+    ret = esp_vfs_fat_sdspi_mount(mount_point, &host, &slot_config, &mount_config, &card);
+
+    if (ret != ESP_OK) {
+        if (ret == ESP_FAIL) {
+            printf("Failed to mount filesystem\n");
+        } else {
+            printf("Failed to initialize the card (%s)\n", esp_err_to_name(ret));
+        }
+        return;
     }
-#endif
-    return high_task_awoken == pdTRUE;
+    else
+        printf("filesystem is mounted and sd card is initialized\n");
 }
+
+static void example_lvgl_flush_cb(lv_disp_drv_t *drv, const lv_area_t *area, lv_color_t *color_map)
+{
+    esp_lcd_panel_handle_t panel_handle = (esp_lcd_panel_handle_t) drv->user_data;
+    int offsetx1 = area->x1;
+    int offsetx2 = area->x2;
+    int offsety1 = area->y1;
+    int offsety2 = area->y2;
+#if CONFIG_EXAMPLE_AVOID_TEAR_EFFECT_WITH_SEM
+    xSemaphoreGive(sem_gui_ready);
+    xSemaphoreTake(sem_vsync_end, portMAX_DELAY);
 #endif
-// bool example_lvgl_lock(int timeout_ms)
-// {
-//     // Convert timeout in milliseconds to FreeRTOS ticks
-//     // If `timeout_ms` is set to -1, the program will block until the condition is met
-//     const TickType_t timeout_ticks = (timeout_ms == -1) ? portMAX_DELAY : pdMS_TO_TICKS(timeout_ms);
-//     return xSemaphoreTakeRecursive(lvgl_mux, timeout_ticks) == pdTRUE;
-// }
-
-// void example_lvgl_unlock(void)
-// {
-//     xSemaphoreGiveRecursive(lvgl_mux);
-// }
-// static void example_increase_lvgl_tick(void *arg)
-// {
-//     /* Tell LVGL how many milliseconds has elapsed */
-//     lv_tick_inc(EXAMPLE_LVGL_TICK_PERIOD_MS);
-// }
-
-// static void example_lvgl_port_task(void *arg)
-// {
-
-//     lv_lock();
-
-//     lv_obj_set_style_bg_color(lv_screen_active(), lv_color_hex(0x003a57), LV_PART_MAIN);
-//     lv_obj_t * label = lv_label_create(lv_screen_active());
-//     lv_label_set_text(label, "Hello world");
-//     lv_obj_set_style_text_color(lv_screen_active(), lv_color_hex(0xffffff), LV_PART_MAIN);
-//     lv_obj_align(label, LV_ALIGN_CENTER, 0, 0);
-
-//     lv_unlock();
-//     while(1) {
-//         sleep(2);
-//     }
-//     // ESP_LOGI(TAG, "Starting LVGL task");
-//     // uint32_t task_delay_ms = EXAMPLE_LVGL_TASK_MAX_DELAY_MS;
-//     // while (1) {
-//     //     printf("[KALPESH] thread working fine\n");
-//     //     // Lock the mutex due to the LVGL APIs are not thread-safe
-//     //     if (example_lvgl_lock(-1)) {
-//     //         task_delay_ms = lv_timer_handler();
-//     //         printf("nex delay = %lu\n",task_delay_ms);
-//     //     //     // Release the mutex
-//     //         example_lvgl_unlock();
-//     //     }
-//     //     // if (task_delay_ms > EXAMPLE_LVGL_TASK_MAX_DELAY_MS) {
-//     //     //     task_delay_ms = EXAMPLE_LVGL_TASK_MAX_DELAY_MS;
-//     //     // } else if (task_delay_ms < EXAMPLE_LVGL_TASK_MIN_DELAY_MS) {
-//     //     //     task_delay_ms = EXAMPLE_LVGL_TASK_MIN_DELAY_MS;
-//     //     // }
-        
-//         vTaskDelay(pdMS_TO_TICKS(task_delay_ms));
-//     // }
-// }
+    // pass the draw buffer to the driver
+    esp_lcd_panel_draw_bitmap(panel_handle, offsetx1, offsety1, offsetx2 + 1, offsety2 + 1, color_map);
+    lv_disp_flush_ready(drv);
+}
 
 void app_main(void)
 {
-#if 1
-    lv_display_t * display = NULL;
-    
+    SdCardInit();
+    static lv_disp_draw_buf_t disp_buf; // contains internal graphic buffer(s) called draw buffer(s)
+    static lv_disp_drv_t disp_drv;      // contains callback functions
+
+#if CONFIG_EXAMPLE_AVOID_TEAR_EFFECT_WITH_SEM
+    ESP_LOGI(TAG, "Create semaphores");
+    sem_vsync_end = xSemaphoreCreateBinary();
+    assert(sem_vsync_end);
+    sem_gui_ready = xSemaphoreCreateBinary();
+    assert(sem_gui_ready);
+#endif
+
 #if EXAMPLE_PIN_NUM_BK_LIGHT >= 0
     ESP_LOGI(TAG, "Turn off LCD backlight");
     gpio_config_t bk_gpio_config = {
@@ -97,8 +181,9 @@ void app_main(void)
         .pin_bit_mask = 1ULL << EXAMPLE_PIN_NUM_BK_LIGHT
     };
     ESP_ERROR_CHECK(gpio_config(&bk_gpio_config));
-#endif //EXAMPLE_PIN_NUM_BK_LIGHT
+#endif
 
+    ESP_LOGI(TAG, "Install RGB LCD panel driver");
     esp_lcd_panel_handle_t panel_handle = NULL;
     esp_lcd_rgb_panel_config_t panel_config = {
         .data_width = 16, // RGB565 in parallel mode, thus 16bit in width
@@ -142,59 +227,56 @@ void app_main(void)
             .vsync_back_porch = 31,
             .vsync_front_porch = 13,
             .vsync_pulse_width = 1,
+
             .flags.pclk_active_neg = true,
         },
         .flags.fb_in_psram = true, // allocate frame buffer in PSRAM
     };
-    ESP_LOGI(TAG, "Initialize RGB LCD panel");
     ESP_ERROR_CHECK(esp_lcd_new_rgb_panel(&panel_config, &panel_handle));
 
     ESP_LOGI(TAG, "Initialize RGB LCD panel");
     ESP_ERROR_CHECK(esp_lcd_panel_reset(panel_handle));
     ESP_ERROR_CHECK(esp_lcd_panel_init(panel_handle));
+
 #if EXAMPLE_PIN_NUM_BK_LIGHT >= 0
-
-    printf("Turn on LCD backlight");
+    ESP_LOGI(TAG, "Turn on LCD backlight");
     gpio_set_level(EXAMPLE_PIN_NUM_BK_LIGHT, EXAMPLE_LCD_BK_LIGHT_ON_LEVEL);
-#endif //EXAMPLE_PIN_NUM_BK_LIGHT
+#endif
 
-    ESP_LOGI(TAG, "Register event callbacks");
-    esp_lcd_rgb_panel_event_callbacks_t cbs = {
-        .on_vsync = example_on_vsync_event,
-    };
-    ESP_ERROR_CHECK(esp_lcd_rgb_panel_register_event_callbacks(panel_handle, &cbs, &display));
     ESP_LOGI(TAG, "Initialize LVGL library");
     lv_init();
+    void *buf1 = NULL;
+    void *buf2 = NULL;
+#if CONFIG_EXAMPLE_DOUBLE_FB
+printf("\n\n\t\t\t\t\t\tKALPESH\n\n\n\n");
+    ESP_LOGI(TAG, "Use frame buffers as LVGL draw buffers");
+    ESP_ERROR_CHECK(esp_lcd_rgb_panel_get_frame_buffer(panel_handle, 2, &buf1, &buf2));
+    // initialize LVGL draw buffers
+    lv_disp_draw_buf_init(&disp_buf, buf1, buf2, EXAMPLE_LCD_H_RES * EXAMPLE_LCD_V_RES);
+#else
+    ESP_LOGI(TAG, "Allocate separate LVGL draw buffers from PSRAM");
+    buf1 = heap_caps_malloc(EXAMPLE_LCD_H_RES * 100 * sizeof(lv_color_t), MALLOC_CAP_SPIRAM);
+    assert(buf1);
+    // initialize LVGL draw buffers
+    lv_disp_draw_buf_init(&disp_buf, buf1, buf2, EXAMPLE_LCD_H_RES * 100);
+#endif // CONFIG_EXAMPLE_DOUBLE_FB
 
-    static uint16_t buf[EXAMPLE_LCD_H_RES * EXAMPLE_LCD_V_RES / 10];
-    display = lv_display_create(EXAMPLE_LCD_H_RES,EXAMPLE_LCD_V_RES);
-    lv_display_set_flush_cb(display,my_flush_cb);
-    lv_display_set_buffers(display,buf,NULL,sizeof(buf),LV_DISPLAY_RENDER_MODE_PARTIAL);
-    lv_display_set_user_data(display,&panel_handle);
-    #endif
-   
-    // lv_port_disp_init();
-   lv_task_handler();
-   while(1){
-    // vTaskDelay(portTICK_PERIOD_MS);
-    // lv_timer_periodic_handler();
-    // lv_task_handler();
-    vTaskDelay(400/portTICK_PERIOD_MS);
-   } 
-   
-   
-   
-   
-    // #define ROW 10
-    // #define COL 10
-    // uint8_t color[2][ROW][COL] = {};
-    // memset(color,0xf0,ROW*COL*2);
-    // // for(int i=0 ; i<50 ; i++)
-    // // {
-    //     esp_lcd_panel_draw_bitmap(panel_handle,390,230,411,251,&color);    
-    // // }
-    
-    // while(1)
-    // vTaskDelay(1/);
-    // esp_lcd_panel_disp_on_off(panel_handle,false);
+    ESP_LOGI(TAG, "Register display driver to LVGL");
+    lv_disp_drv_init(&disp_drv);
+    disp_drv.hor_res = EXAMPLE_LCD_H_RES;
+    disp_drv.ver_res = EXAMPLE_LCD_V_RES;
+    disp_drv.flush_cb = example_lvgl_flush_cb;
+    disp_drv.draw_buf = &disp_buf;
+    disp_drv.user_data = panel_handle;
+#if CONFIG_EXAMPLE_DOUBLE_FB
+    disp_drv.full_refresh = true; // the full_refresh mode can maintain the synchronization between the two frame buffers
+#endif
+    lv_disp_t *disp = lv_disp_drv_register(&disp_drv);
+    // lv_disp_set_default(disp);
+    example_lvgl_demo_ui(disp);
+    while(1)
+    {
+        lv_timer_handler();
+        vTaskDelay(2);
+    }
 }
