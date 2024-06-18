@@ -1,6 +1,6 @@
 #ifndef LCD_LVGL_H
 #define LCD_LVGL_H
-
+#define LV_FONT_CUSTOM_DECLARE
 #include <stdio.h>
 #include <unistd.h>
 #include "sdkconfig.h"

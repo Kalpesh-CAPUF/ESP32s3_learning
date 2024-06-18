@@ -332,9 +332,9 @@ void example_lvgl_demo_ui(lv_disp_t *disp)
     
 
     lv_obj_t * scr = lv_scr_act();
-    lv_color_t color = lv_color_hex(0x80D8FF);
-    lv_obj_set_style_bg_color(scr,color,0);
-    // lv_obj_set_style_bg_color(scr,lv_palette_main(LV_PALETTE_DEEP_PURPLE),0);
+    // lv_color_t color = lv_color_hex(0x80D8FF);
+    // lv_obj_set_style_bg_color(scr,color,0);
+    lv_obj_set_style_bg_color(scr,lv_palette_main(LV_PALETTE_TEAL),0);
     lv_obj_t * textarea = lv_textarea_create(scr);
     lv_textarea_add_text(textarea, "insert this text");
     lv_obj_align(textarea, LV_ALIGN_TOP_MID,0,0);
@@ -349,6 +349,17 @@ void example_lvgl_demo_ui(lv_disp_t *disp)
     lv_obj_set_style_text_font(label14,&lv_font_montserrat_14,0);
     lv_label_set_text(label14,"#0000ff size=14");
     lv_obj_align(label14,LV_ALIGN_TOP_LEFT,0,0);
+
+    //custom font
+    #if 1
+    // LV_FONT_DECLARE()
+    LV_FONT_DECLARE(Teko_Bold_20_4bpp);
+    lv_obj_t *customFont1 = lv_label_create(scr);
+    lv_label_set_recolor(customFont1, true);
+    lv_obj_set_style_text_font(customFont1,&Teko_Bold_20_4bpp,0);
+    lv_label_set_text(customFont1,"#0000ff CAPUF EMBEDDED");
+    lv_obj_align(customFont1,LV_ALIGN_BOTTOM_MID,0,0);
+    #endif
 
     lv_obj_t * label48 = lv_label_create(scr);
     lv_label_set_recolor(label48, true);
