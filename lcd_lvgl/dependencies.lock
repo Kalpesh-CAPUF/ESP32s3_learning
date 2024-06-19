@@ -4,12 +4,12 @@ dependencies:
     source:
       type: idf
     version: 5.2.2
-  lvgl/lvgl:
-    component_hash: 948bff879a345149b83065535bbc4a026ce9f47498a22881e432a264b9098015
+  lvgl__lvgl:
+    component_hash: null
     source:
-      service_url: https://api.components.espressif.com/
-      type: service
+      path: /home/kalpesh/esp/ESP32s3_learning/lcd_lvgl/components/lvgl__lvgl
+      type: local
     version: 8.3.11
-manifest_hash: 7767080a3f048f3708226b71aebd54334287b8c00e48d4cdbe49bd333819d7f1
+manifest_hash: dc93b8c6c890697652b15e97639d1196569f348693290a898a180f6eec93aba1
 target: esp32s3
 version: 1.0.0

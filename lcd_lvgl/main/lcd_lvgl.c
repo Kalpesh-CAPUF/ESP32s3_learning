@@ -17,6 +17,7 @@
 #include "esp_log.h"
 #include "lvgl.h"
 
+#include "lv_port_fs.h"
 static const char *TAG = "example";
 
 #if 1
@@ -78,7 +79,7 @@ extern void example_lvgl_demo2_ui(lv_disp_t *disp);
 
 
 //SD card header
-
+#if 0
 #include <string.h>
 #include <unistd.h>
 #include <dirent.h> 
@@ -143,7 +144,7 @@ void SdCardInit() {
     else
         printf("filesystem is mounted and sd card is initialized\n");
 }
-
+#endif
 static void example_lvgl_flush_cb(lv_disp_drv_t *drv, const lv_area_t *area, lv_color_t *color_map)
 {
     esp_lcd_panel_handle_t panel_handle = (esp_lcd_panel_handle_t) drv->user_data;
@@ -162,7 +163,7 @@ static void example_lvgl_flush_cb(lv_disp_drv_t *drv, const lv_area_t *area, lv_
 
 void app_main(void)
 {
-    SdCardInit();
+    lv_port_fs_init();
     static lv_disp_draw_buf_t disp_buf; // contains internal graphic buffer(s) called draw buffer(s)
     static lv_disp_drv_t disp_drv;      // contains callback functions
 

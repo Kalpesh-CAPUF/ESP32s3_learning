@@ -67,9 +67,7 @@ void _lv_ll_init(lv_ll_t * ll_p, uint32_t node_size)
 void * _lv_ll_ins_head(lv_ll_t * ll_p)
 {
     lv_ll_node_t * n_new;
-
     n_new = lv_mem_alloc(ll_p->n_size + LL_NODE_META_SIZE);
-
     if(n_new != NULL) {
         node_set_prev(ll_p, n_new, NULL);       /*No prev. before the new head*/
         node_set_next(ll_p, n_new, ll_p->head); /*After new comes the old head*/
