@@ -48,8 +48,8 @@ void example_lvgl_demo_ui(lv_disp_t *disp)
     lv_obj_align_to(icon,lv_scr_act(),LV_ALIGN_CENTER,0,0);
 
 //Image binary file path 
-    char * fileName = "P:"MOUNT_POINT"/capuf.bin";
-    printf("image file name = %s\n",fileName);
+    char * imageName1 = "P:"MOUNT_POINT"/capuf.bin";
+    printf("image file 1 = %s\n",imageName1);
     
     
 // checking file system works fine....
@@ -60,7 +60,14 @@ void example_lvgl_demo_ui(lv_disp_t *disp)
     // else printf("file opened : %s\n",fileName);
 
     //Loading image from SD card
-    lv_obj_t * sdImage = lv_img_create(lv_scr_act());
-    lv_img_set_src(sdImage,fileName);
-    lv_obj_align_to(sdImage,lv_scr_act(),LV_ALIGN_RIGHT_MID,0,0);
+    lv_obj_t * sdImage1 = lv_img_create(lv_scr_act());
+    lv_img_set_src(sdImage1,imageName1);
+    lv_obj_align_to(sdImage1,lv_scr_act(),LV_ALIGN_RIGHT_MID ,0,0);
+
+
+    char * imageName2 = "P:"MOUNT_POINT"/leaf.bin";
+    printf("image file 2 = %s\n",imageName2);
+    lv_obj_t * sdImage2 = lv_img_create(lv_scr_act());
+    lv_img_set_src(sdImage2,imageName2);
+    lv_obj_align_to(sdImage2,lv_scr_act(),LV_ALIGN_TOP_RIGHT,0,0);
 }
