@@ -74,7 +74,7 @@ SemaphoreHandle_t sem_vsync_end;
 SemaphoreHandle_t sem_gui_ready;
 #endif
 
-extern void example_lvgl_demo_ui(lv_disp_t *disp);
+// extern void example_lvgl_demo_ui(lv_disp_t *disp);
 
 static bool example_on_vsync_event(esp_lcd_panel_handle_t panel, const esp_lcd_rgb_panel_event_data_t *event_data, void *user_data)
 {
@@ -280,7 +280,7 @@ printf("\n\n\t\t\t\t\t\tKALPESH\n\n\n\n");
 
     if (example_lvgl_lock(-1)) {
         ESP_LOGI(TAG, "Display Test screen");
-        example_lvgl_demo_ui(disp);
+        // example_lvgl_demo_ui(disp);
         // Release the mutex
         example_lvgl_unlock();
     }

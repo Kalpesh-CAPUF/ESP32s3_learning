@@ -3,8 +3,8 @@
 // #include "images.h"
 // #include "sd_driver.h"
 
-void example_lvgl_demo_ui(lv_disp_t *disp)
-{   
+// void example_lvgl_demo_ui(lv_disp_t *disp)
+// {   
 // //creating color from hex value and setting it to screen
 //     // lv_color_t color = lv_color_hex(0x80D8FF);
 //     // lv_obj_set_style_bg_color(lv_scr_act(),color,0);
@@ -70,4 +70,4 @@ void example_lvgl_demo_ui(lv_disp_t *disp)
 //     lv_obj_t * sdImage2 = lv_img_create(lv_scr_act());
 //     lv_img_set_src(sdImage2,imageName2);
 //     lv_obj_align_to(sdImage2,lv_scr_act(),LV_ALIGN_TOP_RIGHT,0,0);
-}
+// }
