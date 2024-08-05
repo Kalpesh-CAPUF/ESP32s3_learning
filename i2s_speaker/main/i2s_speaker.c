@@ -201,7 +201,7 @@ void app_main(void)
     static const i2s_config_t i2s_config_rx = {
         .mode = I2S_MODE_MASTER | I2S_MODE_RX,
         .sample_rate = SOUNDBOX_SAMPLE_RATE,
-        .bits_per_sample = SOUNDBOX_BITS_PER_SAMPLE,
+        .bits_per_sample = SOUNDBOX_BITS_PER_SAMPLE,   // here 32 bits used but actual is 24 bits(24 was causing white noise)
         .channel_format = I2S_CHANNEL_FMT_ONLY_RIGHT, // I2S_CHANNEL_FMT_RIGHT_LEFT //I2S_CHANNEL_FMT_ONLY_RIGHT //I2S_CHANNEL_FMT_ONLY_LEFT
         .communication_format = I2S_COMM_FORMAT_STAND_MSB,
         .intr_alloc_flags = 0, // default interrupt priority
@@ -237,7 +237,7 @@ void app_main(void)
         .dma_buf_count = SOUNDBOX_DMA_BUF_COUNT,
         .dma_buf_len = SOUNDBOX_DMA_BUF_LENGTH,
         .bit_order_msb = true,
-        .tx_desc_auto_clear = true,
+        .tx_desc_auto_clear = true,   // need to be true because iot was causing last chunk of data repeating
         // .big_edin = true,
         .left_align = true,
         .intr_alloc_flags = ESP_INTR_FLAG_LEVEL1,
